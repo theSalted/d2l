@@ -1,0 +1,25 @@
+[project]
+name = "d2l-study"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "d2l>=1.0.3",
+    "torch>=2.12.0",
+    "torchvision>=0.27.0",
+]
+
+[tool.uv]
+# d2l 1.0.3 hard-pins a 2022-era stack (numpy==1.23.5, scipy==1.10.1, ...) that
+# has no Python 3.13 wheels and fails to build from source (no distutils on 3.12+).
+# Override those pins with modern versions that ship 3.13 wheels.
+override-dependencies = [
+    "numpy>=2.1",
+    "scipy>=1.14",
+    "pandas>=2.2",
+    "matplotlib>=3.9",
+    "matplotlib-inline>=0.1.7",
+    "requests>=2.32",
+    "jupyter>=1.1",
+]
